@@ -6,8 +6,8 @@ import (
 	"net/http"
 	"text/template"
 
-	man "github.com/getcouragenow/packages/tool/bs-box/mod01/internal"
-	"github.com/getcouragenow/packages/tool/bs-box/mod01/internal/box"
+	man "github.com/getcouragenow/modules/tool/bs-box/mod01/internal"
+	"github.com/getcouragenow/modules/tool/bs-box/mod01/internal/box"
 )
 
 // PageData structure

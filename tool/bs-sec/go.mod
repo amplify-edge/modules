@@ -1,4 +1,4 @@
-module github.com/getcouragenow/packages/tool/bs-sec
+module github.com/getcouragenow/modules/tool/bs-sec
 
 go 1.15
 

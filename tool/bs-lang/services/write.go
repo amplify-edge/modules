@@ -12,8 +12,8 @@ import (
 	"strings"
 
 	"github.com/emirpasic/gods/maps/linkedhashmap"
-	"github.com/getcouragenow/packages/tool/bs-lang/services/config"
-	"github.com/getcouragenow/packages/tool/bs-lang/utils"
+	"github.com/getcouragenow/modules/tool/bs-lang/services/config"
+	"github.com/getcouragenow/modules/tool/bs-lang/utils"
 	"github.com/pkg/errors"
 	"github.com/tidwall/pretty"
 )

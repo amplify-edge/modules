@@ -3,7 +3,7 @@ package cmd
 import (
 	"strings"
 
-	"github.com/getcouragenow/packages/tool/bs-lang/services"
+	"github.com/getcouragenow/modules/tool/bs-lang/services"
 	"github.com/spf13/cobra"
 )
 

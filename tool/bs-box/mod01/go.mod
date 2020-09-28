@@ -1,3 +1,3 @@
-module github.com/getcouragenow/packages/tool/bs-box/mod01
+module github.com/getcouragenow/modules/tool/bs-box/mod01
 
 go 1.15

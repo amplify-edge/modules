@@ -1,4 +1,4 @@
-module github.com/getcouragenow/packages/tool/bs-hugo
+module github.com/getcouragenow/modules/tool/bs-hugo
 
 go 1.15
 

@@ -1,4 +1,4 @@
-module github.com/getcouragenow/packages/tool/bs-lang
+module github.com/getcouragenow/modules/tool/bs-lang
 
 go 1.15
 
