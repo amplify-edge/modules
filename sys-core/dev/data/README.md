@@ -1,7 +1,38 @@
 # Data
 
-We need to do DB migrations, Test data and Boostrap data in a unified way. Everyone does bu they dont :)
+We need to do DB migrations, Test data and Bootstrap data in a unified way. Everyone does bu they dont :)
 
+
+## v2 Design
+
+The migrations are run against the DB, and NOT against the golang struct.
+- This is because a V2 migration in SQL, will break if it relies on a V3 golang model struct.
+
+Use a GMT datetime stamp ( for ordering)
+- The tool will do it for you. Part of the sys-main cli or bs-data .
+- We will use a timestamped folder to make it clean
+
+Some tools can reflect on the DB and gen the differences for you.
+- The genji tool now has a dump command, and so by comparing the CURRENT migration folder to the PREVIOUS we can see the difference.
+- SO all we need to do is in each migration, as a developer do a dump and compare and save it into the Migration folder.
+- I think for nwo writing a diff generator it too much. But i think always created a dump schema as part of the tooling we shoudl do.
+- For now you hand write the SQL migration, and later we can gen it for the dev.
+
+Use constants per migration in golang
+- Will make the migration easier to test 
+- When making a new migration, just copy the constants from the previous migration
+
+Need up and down
+
+The runtime gets the embedded migrations and just runs them.
+- runtme know the timstamps in the DB. ALL timestamp are ALWAYS converted to GMT anyway.
+- the runtime then just runs the migrations. Easy
+
+
+
+---
+
+## V3 Crazy Design
 We use badgerdb and genji.
 
 Good basis i think.
