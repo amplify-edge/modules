@@ -20,7 +20,7 @@ import (
 	modchat_pb "github.com/getcouragenow/packages/mod-chat/server/pkg/api"
 	modchat_srv "github.com/getcouragenow/packages/mod-chat/server/pkg/service"
 	// auth "github.com/envoyproxy/go-control-plane/envoy/service/auth/v2"
-	// authz "github.com/getcouragenow/packages/mod-account/server/authz_server"
+	// authz "github.com/getcouragenow/modules/mod-account/server/authz_server"
 	// healthpb "google.golang.org/grpc/health/grpc_health_v1"
 )
 

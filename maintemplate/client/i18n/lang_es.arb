@@ -1,6 +1,6 @@
 {
-  "@@last_modified": "2020-09-21T14:51:41.608826",
-  "tabhome": "Hogar",
+  "@@last_modified": "2020-09-28T16:32:58.652077",
+  "tabhome": "Casa",
   "@tabhome": {
     "description": "text for the home tab",
     "placeholders": {},

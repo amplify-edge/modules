@@ -14,7 +14,7 @@ description: A new Flutter project.
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.6.0 <3.0.0"
+  sdk: ">=2.9.0 <3.0.0"
 
 
 dependencies:
@@ -33,27 +33,27 @@ dependencies:
 
   #modtemplate02:
   #  git:
-  #    url: git://github.com/getcouragenow/packages.git
+  #    url: git://github.com/getcouragenow/modules.git
   #    path: modtemplate02/client/
 
-  mod_write:
-    path: ../../mod-write/client
-  mod_chat:
-    path: ../../mod-chat/client
+#  mod_write:
+#    path: ../../mod-write/client
+#  mod_chat:
+#    path: ../../mod-chat/client
   #mod_chat_beta:
   #  path: ../../mod-chat-beta/client
-  mod_ion:
-    path: ../../mod-ion/client
-  mod_geo:
-    path: ../../mod-geo/client
-  mod_session:
-    path: ../../mod-session/client
+#  mod_ion:
+#    path: ../../mod-ion/client
+#  mod_geo:
+#    path: ../../mod-geo/client
+#  mod_session:
+#    path: ../../mod-session/client
   mod_main:
-    path: ../../mod-main/client
-  mod_account:
-    path: ../../mod-account/client
-  mod_kanban:
-    path: ../../mod-kanban/client
+    path: ../../mod-disco/client
+#  mod_account:
+#    path: ../../mod-account/client
+#  mod_kanban:
+#    path: ../../mod-kanban/client
   sys_core:
     path: ../../sys-core/client
   #sys_core:
@@ -73,7 +73,7 @@ dependencies:
   intl_translation: ^0.17.9
   get_it: ^3.1.0
   equatable:
-  meta:
+  meta: ^1.3.0-nullsafety.2
   flutter_modular: ^2.0.0+1
   flutter_platform_widgets: ^0.8.1
   # font_awesome_flutter:
