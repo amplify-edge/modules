@@ -9,8 +9,8 @@ import (
 	"os/signal"
 	"syscall"
 
-	api "github.com/getcouragenow/packages/mod-main/server/pkg/api"
-	"github.com/getcouragenow/packages/mod-main/server/pkg/service"
+	api "github.com/getcouragenow/modules/mod-disco/server/pkg/api"
+	"github.com/getcouragenow/modules/mod-disco/server/pkg/service"
 	"github.com/joho/godotenv"
 	"google.golang.org/grpc"
 	glog "google.golang.org/grpc/grpclog"

@@ -13,9 +13,9 @@ import (
 	"os"
 	"strconv"
 
-	pb "github.com/getcouragenow/packages/mod-main/server/pkg/api"
-	"github.com/getcouragenow/packages/mod-main/server/pkg/config"
-	"github.com/getcouragenow/packages/mod-main/server/pkg/store/minio"
+	pb "github.com/getcouragenow/modules/mod-disco/server/pkg/api"
+	"github.com/getcouragenow/modules/mod-disco/server/pkg/config"
+	"github.com/getcouragenow/modules/mod-disco/server/pkg/store/minio"
 	"github.com/golang/protobuf/proto"
 	"github.com/golang/protobuf/ptypes/empty"
 	glog "google.golang.org/grpc/grpclog"
