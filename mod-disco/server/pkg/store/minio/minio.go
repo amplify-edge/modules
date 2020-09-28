@@ -10,7 +10,7 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/getcouragenow/packages/mod-main/server/pkg/config"
+	"github.com/getcouragenow/modules/mod-disco/server/pkg/config"
 	mn "github.com/minio/minio-go/v6"
 	"github.com/minio/minio-go/v6/pkg/encrypt"
 	"github.com/minio/minio-go/v6/pkg/s3utils"
