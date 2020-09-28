@@ -1,5 +1,14 @@
 //go:generate go run ../../../generator.go
 
+import (
+
+)
+
+// const typedhello string = "Hello World"
+var Mod01 string = mod01.get
+var Mod02 string = mod02.get
+
+
 package box
 
 type embedBox struct {

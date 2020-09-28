@@ -7,7 +7,7 @@ FLU_LIB_NAME = ???
 FLU_LIB_FSPATH = $(PWD)/$(FLU_LIB_NAME)
 
 FLU_SAMPLE_NAME = ???
-FLU_SSAMPLE_FSPATH = $(PWD)/$(FLU_SAMPLE_NAME)
+FLU_SAMPLE_FSPATH = $(PWD)/$(FLU_SAMPLE_NAME)
 
 
 ## Prints the flutter settings
@@ -16,7 +16,7 @@ flu-print:
 	@echo FLU_LIB_NAME: $(FLU_LIB_NAME)
 	@echo FLU_LIB_FSPATH: $(FLU_LIB_FSPATH)
 	@echo FLU_SAMPLE_NAME: $(FLU_SAMPLE_NAME)
-	@echo FLU_SSAMPLE_FSPATH: $(FLU_SSAMPLE_FSPATH)
+	@echo FLU_SAMPLE_FSPATH: $(FLU_SAMPLE_FSPATH)
 	@echo
 
 	@echo -- I18N --
@@ -50,25 +50,25 @@ flu-test:
 	$(MAKE) flu-gen-lang-clean
 	$(MAKE) flu-gen-lang
 	$(MAKE) flu-gen-lang-dart
-	cd $(FLU_SSAMPLE_FSPATH) && flutter test
+	cd $(FLU_SAMPLE_FSPATH) && flutter test
 
 ## Runs Flutter Web.
 flu-web-run:
 	flutter config --enable-web
-	cd $(FLU_SSAMPLE_FSPATH) && flutter run -d chrome
+	cd $(FLU_SAMPLE_FSPATH) && flutter run -d chrome
 
 ## Builds flutter web as a release version
 flu-web-build:
 	flutter config --enable-web
-	cd $(FLU_SSAMPLE_FSPATH) && flutter build web
+	cd $(FLU_SAMPLE_FSPATH) && flutter build web
 
 ## Fixes a common bug with IOS
 flu-mob-fix:
 	# webrtc fix
 	# MIGHT have to apply this to CI also. Lets see.
-	cd $(FLU_SSAMPLE_FSPATH) && rm ios/Podfile.lock
-	cd $(FLU_SSAMPLE_FSPATH) && rm -rf ios/Pods
-	cd $(FLU_SSAMPLE_FSPATH) && flutter clean
+	cd $(FLU_SAMPLE_FSPATH) && rm ios/Podfile.lock
+	cd $(FLU_SAMPLE_FSPATH) && rm -rf ios/Pods
+	cd $(FLU_SAMPLE_FSPATH) && flutter clean
 	 
 	# sign for ios local
 
@@ -90,31 +90,31 @@ flu-mob-fix:
 
 
 flu-mob-run:
-	cd $(FLU_SSAMPLE_FSPATH) && flutter run -d all
+	cd $(FLU_SAMPLE_FSPATH) && flutter run -d all
 
 flu-mob-build:
 	# ios
 	# https://flutter.dev/docs/deployment/ios
 	# change to ios 11 in xcode for runner and pods
-	cd $(FLU_SSAMPLE_FSPATH)/ios && pod install
-	#cd $(FLU_SSAMPLE_FSPATH) && flutter build ios
+	cd $(FLU_SAMPLE_FSPATH)/ios && pod install
+	#cd $(FLU_SAMPLE_FSPATH) && flutter build ios
 
-	cd $(FLU_SSAMPLE_FSPATH) && flutter build ios --release --no-codesign
+	cd $(FLU_SAMPLE_FSPATH) && flutter build ios --release --no-codesign
 
 ## Inits Flutter Desktop
 flu-desk-init:
-	cd $(FLU_SSAMPLE_FSPATH) && $(TOOL_HOVER_BIN_NAME) init
+	cd $(FLU_SAMPLE_FSPATH) && $(TOOL_HOVER_BIN_NAME) init
 	
 
 ## Runs Flutter Desktop
 flu-desk-run:
-	cd $(FLU_SSAMPLE_FSPATH) && $(TOOL_HOVER_BIN_NAME) run
+	cd $(FLU_SAMPLE_FSPATH) && $(TOOL_HOVER_BIN_NAME) run
 
 ## Builds Flutter Desktop
 flu-desk-build:
 	# This is for the CI environment where there is no openGL
-	cd $(FLU_SSAMPLE_FSPATH) && flutter build bundle
-	cd $(FLU_SSAMPLE_FSPATH) && $(TOOL_HOVER_BIN_NAME) build $(GO_OS) --opengl=none
+	cd $(FLU_SAMPLE_FSPATH) && flutter build bundle
+	cd $(FLU_SAMPLE_FSPATH) && $(TOOL_HOVER_BIN_NAME) build $(GO_OS) --opengl=none
 	
 
 
@@ -157,8 +157,8 @@ ifeq ($(GO_OS), windows)
 	protoc empty.proto timestamp.proto wrappers.proto --proto_path=$(LIB_FSPATH)/server/third_party/google/protobuf/ --plugin=$(HOME_PATH)/AppData/Roaming/Pub/Cache/bin/protoc-gen-dart.bat --dart_out=grpc:"$(PROTO_OUTPUT)/client/lib/chat_view/api/v1/google/protobuf"
 	protoc chat.proto --proto_path=$(LIB_FSPATH)/server/api/proto/v1/ --plugin=$(HOME_PATH)/AppData/Roaming/Pub/Cache/bin/protoc-gen-dart.bat --dart_out=grpc:"$(PROTO_OUTPUT)/client/lib/chat_view/api/v1/"
 else
-	protoc empty.proto timestamp.proto wrappers.proto --proto_path=$(LIB_FSPATH)/server/third_party/google/protobuf --plugin=protoc-gen-dart=$(HOME)/.pub-cache/bin/protoc-gen-dart --dart_out=grpc:$(FLU_SSAMPLE_FSPATH)/lib/api/v1/google/protobuf
-	protoc chat.proto --proto_path=$(LIB_FSPATH)/server/api/proto/v1/ --plugin=protoc-gen-dart=$(HOME)/.pub-cache/bin/protoc-gen-dart --dart_out=grpc:$(FLU_SSAMPLE_FSPATH)/client/lib/chat_view/api/v1/
+	protoc empty.proto timestamp.proto wrappers.proto --proto_path=$(LIB_FSPATH)/server/third_party/google/protobuf --plugin=protoc-gen-dart=$(HOME)/.pub-cache/bin/protoc-gen-dart --dart_out=grpc:$(FLU_SAMPLE_FSPATH)/lib/api/v1/google/protobuf
+	protoc chat.proto --proto_path=$(LIB_FSPATH)/server/api/proto/v1/ --plugin=protoc-gen-dart=$(HOME)/.pub-cache/bin/protoc-gen-dart --dart_out=grpc:$(FLU_SAMPLE_FSPATH)/client/lib/chat_view/api/v1/
 endif
 
 
@@ -258,7 +258,7 @@ go-desk-dep:
 go-desk-build:
 	# build flutter web
 	# flutter config --enable-web
-	# cd $(FLU_SSAMPLE_FSPATH) && flutter build web
+	# cd $(FLU_SAMPLE_FSPATH) && flutter build web
 
 	# copy flutter web build to desktop/resources/app
 	rm -rf $(FLU_LIB_FSPATH)desktop/resources/app
@@ -311,10 +311,10 @@ go-desk-run-mac:
 ## Packs Mac desktop
 go-desk-pack-mac:
 	#darwin
-	#cd $(FLU_SSAMPLE_FSPATH) && hover init-packaging darwin-bundle
+	#cd $(FLU_SAMPLE_FSPATH) && hover init-packaging darwin-bundle
 
 	# skaffold the file system with the pkg templates.
-	#cd $(FLU_SSAMPLE_FSPATH) && hover init-packaging darwin-pkg
+	#cd $(FLU_SAMPLE_FSPATH) && hover init-packaging darwin-pkg
 
 	# inject out .app into it.
 	cp -rf $(current_dir)/desktop/output/darwin-amd64/ION\ Desktop\ App.app ./Applications/maintemplate.app

@@ -70,6 +70,130 @@ For V5, its numerous binaries and each instance is linked via RAFT.
 So the Security Auth and Authz in Sys code must be done at the Golang level and not at GRPC level. Then it all works for all versions.
 
 
+# Developer Topology
+
+# v2
+Use versioned golang NOW !!
+
+
+## Repo and Folder structure
+
+- Main
+	- Deploy
+		- Template
+			- **TemplateX**
+				- If single binary, and all architype
+				- Single config.
+				- Archetype
+					- Main
+						- make
+			- **TemplateY**
+				- If multi architypes from an all binary
+				- Config per physical architype
+				- Archetype
+					- MainSys
+						- make
+					- MainMod
+			- **TemplateZ**
+				- If split the Flutter binaries and golang binaries
+				- Config per physical architype
+				- Archetype
+					- MainSysAcc
+						- go
+							- make
+						- flutter
+							- make
+					- MainModGeo
+						- go
+							- make
+						- flutter
+							- make
+	- Mod
+		- Mod-disco
+			- Import GRPC and go API os sys.
+		- Mod-account
+		- Mod-timespace
+
+	- FutureProj/Main
+		- Mod-blahblah
+		- Mod-discoblah
+
+---
+
+- Mod
+	- None for now actually.
+	- Mod-dummy so we knwo things build
+
+- Sys
+	- Obvious
+
+- Shared
+	- gen tools
+	- widgets, etc
+
+## Confif, Routes and Enpoints
+
+Config based, but sys-reg can override. So runtime gets the route from config, calls sys-reg to ask if there is an override.
+
+Example Config
+class Paths {
+  static const String startup = '/startup';
+  static const String login = '/login';
+  static const String home = '/home';
+  static const String chat = '/chat';
+  //static const String chat_beta = '/chatBeta';
+  static const String ion = '/ion';
+  static const String writer = '/writer';
+  static const String settings = '/settings';
+  static const String modWriter = '/modWriter';
+  static const String modGeo = '/geo';
+  static const String modMain = '/';
+  static const String modAccount = '/account';
+  static const String modKanban = '/kanban';
+}
+
+## Mod level
+
+Intent:
+Devs only have a binary dependencies on sys via grpc code.
+Devs have a code dependency on shared, so they can use the nice gen tools and widgets.
+
+client
+- imports only mod-*
+- imports only shared-*
+- but mod-* imports sys-* widgets, etc
+
+Server
+
+- imports only mod-*
+- imports only shared-*
+- but mod-* imports sys-* go stuff.
+
+
+## Sys level
+
+Intent:
+Compiled by Sys team and give to Mod Team
+
+Sys Server on it own.
+
+client
+- only import sys-*
+- imports shared-* for flutter stuff
+
+Server
+- only import sys-*
+- imports shared-* for golang stuff
+
+## Shared
+
+build / gen time stuff.
+- gen and box and build tools.
+
+run time stuff
+- go gprc
+- flutter widgets etc.
+
 ## Design
 
 This shows the import dependencies chain.
@@ -111,10 +235,38 @@ Domain: mod-main.example.com
 
 Important:
 
+
 - JWT needs to be designed to work across many Domains to support V3 from the start.
 - Wildcard TLS and CORS to be designed to work across many Domains to support V3 from the start.
 - All Security Auth and AuthZ checks occur in sys-core golang code and nowhere else.
-- We always compile all the Modules, so that the build process is idempotent, so that we never miss a bug.
+- We always compile all the Modules, so that the build process is idempotent, so that we never miss a bug
+	- So GRPC or GO Transport Method declared in config.
+		- inprocess boolean.
+		- if false, then declare your "IP: port" / DNS
+			- and tell sys-reg, so sys-reg can tell everone else.
+			- and get your dependencies from sys-reg.
+				- routes for flutter and go.
+	- So Maintemplate is ALWAYS the same. There is only one main template !
+	- At run / boot time, it looks to the config to decide what Architype it is running as. 
+		- V2: For example only main, and so its runs everything.
+	- So the Flutter router and the golang router is switched.
+		- V3
+			- flutter
+				- maintemplate is just a nav with iframe
+				- example-mod-* is just that mod loaded
+				- It looks to the "Consul" to get the dependent module endpoint.
+			- go
+				- mod with everything as binary
+				- sys with everything as binary
+		- V4
+			- flutter
+				- maintemplate is just hitting mod-reg to load whatever
+				- example-mod-* is just that mod loaded, and it sub loads "contacts"
+			- go
+				- mod-* as binary
+				- sys-* as binary
+
+
 
 Modular Config:
 
