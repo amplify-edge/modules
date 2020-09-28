@@ -1,7 +1,7 @@
 package pass_test
 
 import (
-	"github.com/getcouragenow/packages/sys-account/pkg/pass"
+	"github.com/getcouragenow/modules/sys-account/server/pkg/pass"
 	"github.com/stretchr/testify/assert"
 	"testing"
 )

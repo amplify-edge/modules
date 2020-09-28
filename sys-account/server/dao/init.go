@@ -1,6 +1,6 @@
 package dao
 
-import "github.com/getcouragenow/packages/sys-core/server/pkg/db"
+import "github.com/getcouragenow/modules/sys-core/server/pkg/db"
 
 var (
 	tablePrefix = "sys_core"

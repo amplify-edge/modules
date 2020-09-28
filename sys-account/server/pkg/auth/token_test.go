@@ -1,9 +1,9 @@
 package auth_test
 
 import (
-	"github.com/getcouragenow/packages/sys-account/pkg/auth"
-	"github.com/getcouragenow/packages/sys-account/pkg/utilities"
-	rpc "github.com/getcouragenow/packages/sys-account/rpc/v2"
+	"github.com/getcouragenow/modules/sys-account/server/pkg/auth"
+	"github.com/getcouragenow/modules/sys-account/server/pkg/utilities"
+	rpc "github.com/getcouragenow/modules/sys-account/server/rpc/v2"
 	"github.com/stretchr/testify/assert"
 	"testing"
 )
@@ -23,7 +23,7 @@ var (
 			Password: "HATH_NO_FURY_LIKE",
 			Role: &rpc.UserRoles{
 				Role:     4, // Superadmin
-				Resource: &rpc.UserRoles_All{All: true},
+				Resource: nil,
 			},
 		},
 		{

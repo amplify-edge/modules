@@ -5,10 +5,10 @@ package main
 
 import (
 	"context"
-	"github.com/getcouragenow/packages/sys-account/delivery"
-	"github.com/getcouragenow/packages/sys-account/pkg/auth"
-	"github.com/getcouragenow/packages/sys-account/pkg/utilities"
-	"github.com/getcouragenow/packages/sys-account/rpc/v2"
+	"github.com/getcouragenow/modules/sys-account/server/delivery"
+	"github.com/getcouragenow/modules/sys-account/server/pkg/auth"
+	"github.com/getcouragenow/modules/sys-account/server/pkg/utilities"
+	"github.com/getcouragenow/modules/sys-account/server/rpc/v2"
 	grpc_middleware "github.com/grpc-ecosystem/go-grpc-middleware"
 	grpc_auth "github.com/grpc-ecosystem/go-grpc-middleware/auth"
 	grpc_logrus "github.com/grpc-ecosystem/go-grpc-middleware/logging/logrus"
@@ -66,11 +66,11 @@ func main() {
 	ctx, cancel := context.WithTimeout(ctx, 10*time.Second)
 	defer cancel()
 
-	//netLis, err := net.Listen("tcp", "127.0.0.1:8888")
-	//if err != nil {
+	// netLis, err := net.Listen("tcp", "127.0.0.1:8888")
+	// if err != nil {
 	//	log.Fatalf("error listening to http://127.0.0.1:8888 => %v\n", err)
 	//	os.Exit(1)
-	//}
+	// }
 	logrusOpts := []grpc_logrus.Option{
 		grpc_logrus.WithLevels(grpc_logrus.DefaultCodeToLevel),
 	}

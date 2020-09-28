@@ -2,9 +2,9 @@ package delivery_test
 
 import (
 	"context"
-	"github.com/getcouragenow/packages/sys-account/delivery"
-	"github.com/getcouragenow/packages/sys-account/pkg/auth"
-	rpc "github.com/getcouragenow/packages/sys-account/rpc/v2"
+	"github.com/getcouragenow/modules/sys-account/server/delivery"
+	"github.com/getcouragenow/modules/sys-account/server/pkg/auth"
+	rpc "github.com/getcouragenow/modules/sys-account/server/rpc/v2"
 	"github.com/sirupsen/logrus"
 	"github.com/stretchr/testify/assert"
 	"google.golang.org/grpc/codes"

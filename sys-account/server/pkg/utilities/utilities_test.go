@@ -1,7 +1,7 @@
 package utilities_test
 
 import (
-	"github.com/getcouragenow/packages/sys-account/pkg/utilities"
+	"github.com/getcouragenow/modules/sys-account/server/pkg/utilities"
 	"github.com/stretchr/testify/assert"
 	"testing"
 )

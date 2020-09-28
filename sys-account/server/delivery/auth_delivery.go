@@ -2,8 +2,8 @@ package delivery
 
 import (
 	"context"
-	"github.com/getcouragenow/packages/sys-account/pkg/auth"
-	rpc "github.com/getcouragenow/packages/sys-account/rpc/v2"
+	"github.com/getcouragenow/modules/sys-account/server/pkg/auth"
+	rpc "github.com/getcouragenow/modules/sys-account/server/rpc/v2"
 	"github.com/grpc-ecosystem/go-grpc-middleware/util/metautils"
 	l "github.com/sirupsen/logrus"
 	"google.golang.org/grpc"

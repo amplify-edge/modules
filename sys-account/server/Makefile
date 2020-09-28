@@ -1,4 +1,4 @@
-LIB=github.com/getcouragenow/packages/sys-account/server
+LIB=github.com/getcouragenow/modules/sys-account/server
 LIB_FSPATH=$(GOPATH)/src/$(LIB)
 LIB_BIN_FSPATH=$(PWD)/bin
 LIB_DATA_FSPATH=$(PWD)/data
