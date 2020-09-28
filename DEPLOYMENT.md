@@ -125,5 +125,5 @@ Local LB:
 Global LB
 - DNS LB
 
-PROVISIONING
+PROVISIONING / RUNTIME
 - Uses the Hashicorp tools of NOMAD, CONSUL to manage the k3d system.
