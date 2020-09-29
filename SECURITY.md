@@ -5,6 +5,38 @@ The Architecture is designed to be an End to End secure system.
 
 See the [sys-core](https://github.com/getcouragenow/packages/tree/master/sys-core) for the code and domain model and the roles and permissions.
 
+## Checks for User
+
+https://www.cloudflare.com/ssl/encrypted-sni/
+- you need ALL 4 to pass in your browser
+
+https://1.1.1.1/help
+- another check which sucks
+
+1. Set DNS on your mac
+- For IPv4: 1.1.1.1 and 1.0.0.1. 
+- For IPv6: 2606:4700:4700::1111 and 2606:4700:4700::1001.
+
+2. Get FF
+
+Only Firefox has all 4 that you need:
+use these settings: https://www.inmotionhosting.com/support/website/security/dns-over-https-encrypted-sni-in-firefox/
+
+3. If you must use Chrome:
+Chrome:
+chrome://flags/#dns-over-https
+chrome://flags/#enable-webrtc-hide-local-ips-with-mdns
+chrome://flags/#dns-httpssvc
+
+## Check the Server
+
+We need to use this code and integrate it.
+
+https://github.com/nextdns/nextdns/blob/master/service.go
+https://github.com/nextdns/nextdns/tree/master/host
+
+We will implement the DNS and ESNI check also into your own server.
+SO we can tell the user they are leaking and advice them
 
 ## Modules
 
